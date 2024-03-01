@@ -1,5 +1,5 @@
-# DCPNeRF
-**Single-Scene Haze Removal and 3D Reconstruction Based on Dark Channel Prior**
+# DHSNeRF
+**Multi-Image Decoupling of Haze and Scenes using Neural Radiance Fields**
 ![Overview of our method](https://github.com/C2022G/dcpnerf/blob/main/readme/method.png)
 
 The implementation of our code is referenced in [kwea123-npg_pl](https://github.com/kwea123/ngp_pl)。The hardware and software basis on which our model operates is described next
