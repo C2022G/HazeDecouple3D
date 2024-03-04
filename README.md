@@ -73,26 +73,8 @@ python run.py  \
 ```
 After the training, three types of files will be generated in the current location, such as: log files are generated in the logs folder, model weight files are generated in ckpts, and rendering results are generated in the results folder, including test rendering images and videos of haze scenes and clean scenes
 
-The optimal hyperparameters of each scene are obtained by experiments.
+![The optimal hyperparameters of each scene are obtained by experiments.](https://github.com/C2022G/dhsnerf/blob/main/readme/table3.png)
 
-\begin{table}[]
-\begin{tabular}{ccccc}
-\hline
-          & distortion\_weight & opacity\_weight & dcp\_weight & foggy\_weight \\ \hline
-fern      & 1e-5               & 1e-5            & 1e-2        & 2e-3          \\
-room      & 1e-4               & 1e-4            & 1e-2        & 2e-4          \\
-horns     & 1e-5               & 1e-5            & 1e-2        & 2e-3          \\
-trex      & 1e-4               & 1e-4            & 1e-2        & 6e-3          \\
-lego      & 1e-2               & 1e-3            & 6e-2        & 1e-3          \\
-chair     & 1e-2               & 1e-3            & 1e-2        & 6e-4          \\
-ship      & 1e-2               & 1e-3            & 1e-2        & 6e-4          \\
-mic       & 1e-2               & 1e-3            & 6e-2        & 4e-5          \\
-materials & 1e-2               & 1e-3            & 1e-2        & 6e-4          \\
-hotdog    & 1e-2               & 1e-3            & 1e-2        & 6e-4          \\
-ficus     & 1e-2               & 1e-3            & 6e-2        & 6e-4          \\
-drums     & 1e-2               & 1e-3            & 1e-2        & 6e-4          \\ \hline
-\end{tabular}
-\end{table}
 
 
 Similarly, we can adjust dcp_weight and foggy_weight if the default parameters don't apply to a particular dataset.
@@ -105,62 +87,20 @@ By specifying the split, ckpt_path parameters, the run.py script supports render
 python run.py  \
 	--root_dir /devdata/chengan/Synthetic_NeRF/lego \
 	--split test
-	--exp_name lego_highter \
-	--haz_dir_name highter 
+	--exp_name lego_0.14_0.8_5 \
+	--haz_dir_name 0.14_0.8_5 
 	--ckpt_path /ckpts/..
 ```
 
 ## result
 ![{\bf Qualitative comparisons were performed on LLFF hazy dataset with atmospheric light 0.8 and scattering coefficient 0.14.} The novel viewpoint images rendered by baseline methods fail to faithfully restore the haze-free scene and are plagued by numerous black artifacts. In contrast, DHSNeRF effectively removes substantial haze and faithfully reconstructs the scene.](https://github.com/C2022G/dhsnerf/blob/main/readme/llff.png)
 
-
-\begin{table}[!b]
-\caption{{\bf Qualitative comparison results on LLFF haze dataset with atmospheric light 0.8 and scattering coefficient 0.14.} Experimental results indicate that baseline methods tend to overfit, whereas DHSNeRF achieves the highest PSNR on test set. Additionally, it achieves the best SSIM on the room and fern scene test set.}
-\scalebox{0.85}{
-\begin{tabular}{cccccccccc}
-\hline
-\multirow{2}{*}{} & \multicolumn{3}{c}{room}                        & \multicolumn{3}{c}{fern}                        & \multicolumn{3}{c}{trex}                       \\
-                  & Train          & \multicolumn{2}{c}{Test}       & Train          & \multicolumn{2}{c}{Test}       & Train          & \multicolumn{2}{c}{Test}       \\
-Method            & PSNR($\uparrow$)           & PSNR($\uparrow$)           & SSIM($\uparrow$)          & PNSR           & PSNR($\uparrow$)           & SSIM($\uparrow$)          & PSNR($\uparrow$)           & PSNR($\uparrow$)           & SSIM($\uparrow$)          \\ \hline
-DCP               & 30.80          & \underline{16.10}          & \underline{0.72}          & \underline{26.20}          & \underline{16.20}          & \underline{0.61}          & \underline{28.00} & \underline{17.40}          & \textbf{0.77} \\
-FFANet            & \textbf{33.00} & 12.90          & 0.65          & \textbf{26.60} & 12.90          & 0.54          & \textbf{28.30}          & 10.80          & 0.57         \\
-DehazFOrmer       & \underline{32.10}          & 15.40          & 0.69          & 25.80          & 13.30          & 0.55          & \underline{28.00}          & 15.30          & 0.72          \\
-DHSNeRF           & 20.30          & \textbf{19.10} & \textbf{0.85} & 22.90          & \textbf{21.80} & \textbf{0.69} & 22.30          & \textbf{20.40} & \underline{0.73}          \\ \hline
-\end{tabular}
-}
-\label{table:1}
-\end{table}
-
+![The optimal hyperparameters of each scene are obtained by experiments.](https://github.com/C2022G/dhsnerf/blob/main/readme/table1.png)
 
 ![{\bf Qualitative comparisons were performed on Synthetic hazy dataset with atmospheric light 0.8 and scattering coefficient 0.2.} Both DCP and FFANet methods exhibit noticeable haze artifacts that cannot be removed. DehazFormer and DHSNeRF can faithfully reconstruct the 3D shapes, but DehazFormer shows some color deviations, leading to overfitting.](https://github.com/C2022G/dhsnerf/blob/main/readme/nerf.png)
 
 
-
-% table 2
-\begin{table}[!b]
-\caption{{\bf Qualitative comparison results on Synthetic haze dataset with atmospheric light 0.8 and scattering coefficient 0.2.} Experimental results indicate that baseline methods are prone to overfitting, while DHSNeRF achieves the optimal SSIM on the test set. Additionally, it obtains the highest PSNR on the lego scene test set.}
-\scalebox{0.82}{
-\begin{tabular}{c|lllllllll}
-\hline
-\multirow{2}{*}{} & \multicolumn{3}{c}{lego}                                                                  & \multicolumn{3}{c}{drums}                                                                 & \multicolumn{3}{c}{ship}                                                        \\
-                  & \multicolumn{1}{c}{Train} & \multicolumn{2}{c|}{Test}                                     & \multicolumn{1}{c}{Train} & \multicolumn{2}{c|}{Test}                                     & \multicolumn{1}{c}{Train} & \multicolumn{2}{c}{Test}                            \\
-Method            & \multicolumn{1}{c}{PSNR($\uparrow$)}  & \multicolumn{1}{c}{PSNR($\uparrow$)} & \multicolumn{1}{c|}{SSIM($\uparrow$)}          & \multicolumn{1}{c}{PNSR($\uparrow$)}  & \multicolumn{1}{c}{PSNR($\uparrow$)} & \multicolumn{1}{c|}{SSIM($\uparrow$)}          & \multicolumn{1}{c}{PSNR($\uparrow$)}  & \multicolumn{1}{c}{PSNR($\uparrow$)} & \multicolumn{1}{c}{SSIM($\uparrow$)} \\ \hline
-DCP               
-& \underline{30.60}                     & 21.80                   & \multicolumn{1}{l|}{0.88}        & \textbf{26.50}            & \textbf{23.20}                    & \multicolumn{1}{l|}{0.85}        
-& \textbf{27.60}                     & \textbf{24.30}                    & \underline{0.76}                     \\
-FFANet            
-& 29.20                     & 20.70                   & \multicolumn{1}{l|}{0.88}        & \underline{25.20}                     & 21.40                    & \multicolumn{1}{l|}{\underline{0.89}}        & 23.50                     & 11.80                    & 0.59                     \\
-DehazFormer       
-& \textbf{32.40}            & \underline{24.30}                    & \multicolumn{1}{l|}{\underline{0.92}}        & 24.80                     & 21.00                    & \multicolumn{1}{l|}{0.85}        & \underline{27.30}            & 20.40                    & 0.73                     \\ 
-DHSNeRF           
-& 27.80                     & \textbf{27.70}           & \multicolumn{1}{l|}{\textbf{0.93}} 
-& 23.90                     & \underline{22.80}           & \multicolumn{1}{l|}{\textbf{0.90}} 
-& 20.00                     &\underline{20.90}           & \textbf{0.79}            \\ \hline
-\end{tabular}
-}
-\label{table:2}
-\end{table}
-
+![The optimal hyperparameters of each scene are obtained by experiments.](https://github.com/C2022G/dhsnerf/blob/main/readme/table2.png)
 
 ![{\bf Erosion Study of soft density guided weight ($W^\alpha$).} As shown in (a), we select a ray passing through the calibrated red point in the fern scene, recording the weights of $P\mbox{-}Field$ and $C\mbox{-}Field$ sampling points along with their distances from the ray origin.  In (b), in the absence of soft density-guided weight , there is a noticeable increase in sampling points, and $P\mbox{-}Field$ weights tend to approach 0.  In (c), the weight distribution of DHSNeRF exhibits a uniform distribution of haze particles, and $C\mbox{-}Field$'s ray display a unimodal termination distribution.](https://github.com/C2022G/dhsnerf/blob/main/readme/guide.png)
 
