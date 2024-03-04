@@ -111,7 +111,7 @@ python run.py  \
 ```
 
 ## result
-![{\bf Qualitative comparisons were performed on LLFF hazy dataset with atmospheric light 0.8 and scattering coefficient 0.14.} The novel viewpoint images rendered by baseline methods fail to faithfully restore the haze-free scene and are plagued by numerous black artifacts. In contrast, DHSNeRF effectively removes substantial haze and faithfully reconstructs the scene.](https://github.com/C2022G/dcpnerf/blob/main/readme/llff.png)
+![{\bf Qualitative comparisons were performed on LLFF hazy dataset with atmospheric light 0.8 and scattering coefficient 0.14.} The novel viewpoint images rendered by baseline methods fail to faithfully restore the haze-free scene and are plagued by numerous black artifacts. In contrast, DHSNeRF effectively removes substantial haze and faithfully reconstructs the scene.](https://github.com/C2022G/dhsnerf/blob/main/readme/llff.png)
 
 
 \begin{table}[!b]
@@ -132,7 +132,7 @@ DHSNeRF           & 20.30          & \textbf{19.10} & \textbf{0.85} & 22.90     
 \end{table}
 
 
-![{\bf Qualitative comparisons were performed on Synthetic hazy dataset with atmospheric light 0.8 and scattering coefficient 0.2.} Both DCP and FFANet methods exhibit noticeable haze artifacts that cannot be removed. DehazFormer and DHSNeRF can faithfully reconstruct the 3D shapes, but DehazFormer shows some color deviations, leading to overfitting.](https://github.com/C2022G/dcpnerf/blob/main/readme/nerf.png)
+![{\bf Qualitative comparisons were performed on Synthetic hazy dataset with atmospheric light 0.8 and scattering coefficient 0.2.} Both DCP and FFANet methods exhibit noticeable haze artifacts that cannot be removed. DehazFormer and DHSNeRF can faithfully reconstruct the 3D shapes, but DehazFormer shows some color deviations, leading to overfitting.](https://github.com/C2022G/dhsnerf/blob/main/readme/nerf.png)
 
 
 
@@ -162,7 +162,7 @@ DHSNeRF
 \end{table}
 
 
-![{\bf Erosion Study of soft density guided weight ($W^\alpha$).} As shown in (a), we select a ray passing through the calibrated red point in the fern scene, recording the weights of $P\mbox{-}Field$ and $C\mbox{-}Field$ sampling points along with their distances from the ray origin.  In (b), in the absence of soft density-guided weight , there is a noticeable increase in sampling points, and $P\mbox{-}Field$ weights tend to approach 0.  In (c), the weight distribution of DHSNeRF exhibits a uniform distribution of haze particles, and $C\mbox{-}Field$'s ray display a unimodal termination distribution.](https://github.com/C2022G/dcpnerf/blob/main/readme/guide.png)
+![{\bf Erosion Study of soft density guided weight ($W^\alpha$).} As shown in (a), we select a ray passing through the calibrated red point in the fern scene, recording the weights of $P\mbox{-}Field$ and $C\mbox{-}Field$ sampling points along with their distances from the ray origin.  In (b), in the absence of soft density-guided weight , there is a noticeable increase in sampling points, and $P\mbox{-}Field$ weights tend to approach 0.  In (c), the weight distribution of DHSNeRF exhibits a uniform distribution of haze particles, and $C\mbox{-}Field$'s ray display a unimodal termination distribution.](https://github.com/C2022G/dhsnerf/blob/main/readme/guide.png)
 
 
 
