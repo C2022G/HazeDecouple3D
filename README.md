@@ -50,9 +50,9 @@ conda create -n dcpnerf python=3.7
 	```
 
 ## Datasets
-Due to the lack of a dedicated single-haze scene image dataset, we employed virtual scenes as the experimental subjects.   We utilized Blender 3D models provided in NeRF to render realistic 360° panoramic images and depth maps while maintaining consistent camera poses and intrinsic parameters. Under the assumption of uniformly distributed haze particles in the virtual scenes, we endowed eight virtual scenes with uniform atmospheric light and the same haze density, achieved by applying fog to the rendered original clear images using the ASM formula.
+We utilize synthetic scenes and real-world LLFF scenes for our experiments. For the synthetic dataset, we render realistic 360° panorama images and depth information using Blender 3D models provided in NeRF [1], maintaining consistent camera poses and intrinsic parameters. The depth information for LLFF real-world scenes is obtained through MipNeRF360. Although this depth information may have some inaccuracies, it is within acceptable bounds for access. Assuming a uniform distribution of haze particles, we assign uniform atmospheric light and the same scattering coefficient to both synthetic scenes and LLFF real-world scenes. Fog is applied to the clear images using the Atmospheric Scattering Model (ASM). Currently, we have obtained both clear and blurry images. Our network requires only the blurry images as input. By comparing the model’s rendered results with the clear images from the real dataset, we can evaluate the network’s performance more intuitively and effectively.
 
-**The dataset can be obtained from [Baidu net disk](https://pan.baidu.com/s/10vo99AKu6sAAfWD2ZYQL7w?pwd=2022).**
+**The dataset can be obtained from [Baidu synthetic](https://pan.baidu.com/s/1lU6HwSGHKnse1seTR0Kj3Q?pwd=2024) and [Baidu LLFF](https://pan.baidu.com/s/1P-AbrCpwB1aUyP-wSpMXSQ).**
 
 
 ## Training
