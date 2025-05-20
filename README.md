@@ -1,5 +1,5 @@
 # HazeDecouple3D
-**Multi-Image Decoupling of Haze and Scenes using Neural Radiance Fields**
+**End to End 3D Scene Reconstruction via Haze Scene Disentanglement**
 ![Overview of our method](https://github.com/C2022G/HazeDecouple3D/blob/main/readme/1.png)
 
 The implementation of our code is referenced in [kwea123-npg_pl](https://github.com/kwea123/ngp_pl)。The hardware and software basis on which our model operates is described next
@@ -50,8 +50,6 @@ conda create -n dcpnerf python=3.7
 	```
 
 ## Datasets
-We utilize synthetic scenes and real-world LLFF scenes for our experiments. For the synthetic dataset, we render realistic 360° panorama images and depth information using Blender 3D models provided in NeRF [1], maintaining consistent camera poses and intrinsic parameters. The depth information for LLFF real-world scenes is obtained through MipNeRF360. Although this depth information may have some inaccuracies, it is within acceptable bounds for access. Assuming a uniform distribution of haze particles, we assign uniform atmospheric light and the same scattering coefficient to both synthetic scenes and LLFF real-world scenes. Fog is applied to the clear images using the Atmospheric Scattering Model (ASM). Currently, we have obtained both clear and blurry images. Our network requires only the blurry images as input. By comparing the model’s rendered results with the clear images from the real dataset, we can evaluate the network’s performance more intuitively and effectively.
-
 **The dataset can be obtained from https://pan.baidu.com/s/1tS4q59IPoezKPQ0ho1L0CQ?pwd=evnf password: evnf **
 
 
@@ -71,6 +69,9 @@ python run.py  \
 	--dcp_weight 6e-2
 	--foggy_weight 1e-3
 ```
+## parameters
+According to the better parameters for scene reconstruction obtained from the experiment, from left to right, they are $\lambda_1,\lambda_2,\lambda_3,\lambda_4$.
+![Overview of our method](https://github.com/C2022G/HazeDecouple3D/blob/main/readme/5.png)
 
 ## Result
 
