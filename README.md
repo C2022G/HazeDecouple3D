@@ -50,7 +50,7 @@ conda create -n dcpnerf python=3.7
 	```
 
 ## Datasets
-**The dataset can be obtained from https://pan.baidu.com/s/1tS4q59IPoezKPQ0ho1L0CQ?pwd=evnf password: evnf **
+The dataset can be obtained from https://pan.baidu.com/s/1tS4q59IPoezKPQ0ho1L0CQ?pwd=evnf password: evnf
 
 
 ## Training
